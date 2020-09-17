@@ -1,0 +1,35 @@
+/* .nav-border{
+    color: white;
+    opacity: .7;
+    background-color: rgb(233, 227, 227);
+} */
+
+.navber{
+    margin: 0px 50px;
+}
+.navber img{
+    width: 100px;
+}
+
+.navLink{
+    color: #000000;
+    font-weight: 400;
+    padding: 8px 15px;
+}
+
+.navLinkCart{
+    color: black;
+    font-weight: 300;
+    padding: 8px 15px;
+}
+
+.navLinkCart:hover{
+    color: black;
+}
+
+.navLink:hover{
+    background-color: #f79809;
+    text-decoration: none;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+}

@@ -1,0 +1,69 @@
+.booking{
+    height: 100%;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-image: url('../../assets/Image/Rectanglee.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: system-ui;
+    
+}
+
+.place{
+    color: white;
+    margin: 150px 50px;
+}
+
+.place h1{
+    font-size: 60px;
+    padding-bottom: 20px;
+}
+
+.book{
+    width: 400px;
+    height: 350px;
+    background-color: white;
+    margin: 100px ;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.book input{
+    background-color: rgb(231, 227, 227);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.book input[type="text"]{
+    width: 350px;
+    padding-left: 20px;
+}
+
+.book input[type="date"]{
+    width: 155px;
+}
+
+.book label{
+    margin: 10px 20px;
+}
+
+.book button{
+    border: none;
+    background-color: rgb(255, 162, 23);
+    width: 350px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.book button:focus{
+   outline: none;
+}

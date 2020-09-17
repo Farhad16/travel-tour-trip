@@ -1,0 +1,61 @@
+.contain{
+    color: white;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-image: url('../../assets/Image/Rectanglee.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel-item {
+    height: 100%;
+  }
+  
+.carousel-item  img {
+      top: 0;
+      left: 0;
+      height: 500px;
+}
+
+.imgstyle{
+    height: 300px;
+}
+
+.carousel{
+    padding: 25px 0px;
+    filter: brightness(100%);
+
+}
+
+.title{
+    position: absolute;
+    right: 5%;
+    bottom: 20px;
+    left: 0%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.buy-now-btn{
+    border: none;
+    background-color: #f19c12;
+    padding: 5px 20px;
+    font-weight: 400;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.buy-now-btn:focus{
+  outline: none;
+}
+
+.placeName{
+    font-size: 50px;
+    padding-bottom: 10px;
+}
