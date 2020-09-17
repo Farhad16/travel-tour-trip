@@ -16,6 +16,7 @@ const Login = () => {
         lastName: '',
         email: '',
         password: '',
+        password1: '',
         photoURL: '',
         error: '',
         success: false
@@ -51,20 +52,28 @@ const Login = () => {
 
 
     const handleSubmit = (e) => {
-        console.log(user);
-        console.log(user.email, user.password);
-        if (newUser && user.email && user.password) {
-            createUserWithEmailAndPassword(user)
-                .then(res => {
-                    handleResponse(res, true);
-                })
-        }
 
         if (!newUser && user.email && user.password) {
             signInWithEmailAndPassword(user)
                 .then(res => {
                     handleResponse(res, true);
                 })
+        }
+        else if (user.password !== user.password1) {
+            const msg = 'Password is not matched';
+            setMessage(msg)
+        }
+
+        else {
+            const msg = '';
+            setMessage(msg);
+            if (newUser && user.email && user.password) {
+                createUserWithEmailAndPassword(user)
+                    .then(res => {
+                        handleResponse(res, true);
+                    })
+            }
+
         }
 
         e.preventDefault()
@@ -74,7 +83,10 @@ const Login = () => {
 
     const handleBlur = (e) => {
         let isFieldValid = 'true'
-        let pass1;
+        if (e.target.value === "") {
+            const msg = '';
+            setMessage(msg)
+        }
 
         if (e.target.name === 'email') {
             const validEmail = /\S+@\S+\.\S+/.test(e.target.value);
@@ -99,28 +111,12 @@ const Login = () => {
             const isPasswordValid = e.target.value.length > 6;
             const passwordHasNumber = /\d{1}/.test(e.target.value);
             isFieldValid = isPasswordValid && passwordHasNumber;
-            pass1 = e.target.value;
-            if (pass1 !== user.password) {
-                const msg = 'Password is not matched';
-                setMessage(msg)
-            }
-            else {
-                const msg = '';
-                setMessage(msg)
-                isFieldValid = isPasswordValid && passwordHasNumber;
-            }
         }
 
         if (isFieldValid) {
             const newUserInfo = { ...user };
             newUserInfo[e.target.name] = e.target.value;
             setUser(newUserInfo);
-        }
-
-
-        if (e.target.value === "") {
-            const msg = '';
-            setMessage(msg)
         }
 
     }
@@ -144,8 +140,8 @@ const Login = () => {
                             <input type="text" onBlur={handleBlur} name="firstName" placeholder="First Name" required /><br />
                             <input type="text" onBlur={handleBlur} name="lastName" placeholder="Last Name" required /><br />
                             <input type="text" onBlur={handleBlur} name="email" placeholder="Username or Email" required /><br />
-                            <input type="password" onBlur={handleBlur} name="password1" placeholder="Password" required /><br />
-                            <input type="password" onBlur={handleBlur} name="password2" placeholder="Confirm Password" required /><br />
+                            <input type="password" onBlur={handleBlur} name="password" placeholder="Password" required /><br />
+                            <input type="password" onBlur={handleBlur} name="password1" placeholder="Confirm Password" required /><br />
                             <br />
                             <span className="error">{message}</span>
                             <input type="submit" className="createAccount" onClick={handleSubmit} value="Create Account" />

@@ -1,6 +1,6 @@
 .contain{
     color: white;
-    height: 700px;
+    height: 600px;
     background-attachment: fixed;
     background-position: bottom;
     background-image: url('../../assets/Image/Rectanglee.png');
@@ -24,9 +24,8 @@
 }
 
 .carousel{
-    padding: 50px 0px;
+    padding: 10px 0px;
     filter: brightness(100%);
-
 }
 
 .title{
