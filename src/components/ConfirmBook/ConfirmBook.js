@@ -8,11 +8,11 @@ const ConfirmBook = (props) => {
     const { id } = useParams()
     const matchPlace = fakeData.find(loc => loc.id === parseInt(id));
     const hotel = matchPlace.hotels
-    console.log(hotel);
 
     const mapStyles = {
-        width: '100%',
+        width: '90%',
         height: '100%',
+        borderRadius: '10px'
     };
 
     return (
@@ -21,7 +21,7 @@ const ConfirmBook = (props) => {
             <div className="row">
                 <div className="col-md-6 ">
                     {
-                        hotel.map(hotel => <div className="hotelImg space-between">
+                        hotel.map(hotel => <div key={hotel.id} className="hotelImg space-between">
                             <img className="hotelImg" src={hotel.img} alt="" />
                             <div className="hotelDetails">
                                 <h5>{hotel.name}</h5>

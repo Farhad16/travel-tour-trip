@@ -68,7 +68,6 @@ export const handleSignOut = () => {
 }
 
 export const createUserWithEmailAndPassword = (user) => {
-    console.log(user);
     const { firstName, lastName, email, password } = user;
     return firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(res => {

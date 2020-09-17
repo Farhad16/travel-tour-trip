@@ -14,6 +14,7 @@ import Home from './components/Home/Home';
 import NotMatch from './components/NotMatch/NotMatch';
 import ConfirmBook from './components/ConfirmBook/ConfirmBook';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Footer from './components/Footer/Footer';
 
 
 export const UserContext = createContext();
@@ -45,6 +46,7 @@ function App() {
             <NotMatch></NotMatch>
           </Route>
         </Switch>
+        <Footer></Footer>
       </Router>
     </UserContext.Provider>
   );

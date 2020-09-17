@@ -1,5 +1,8 @@
 .signInAndSignUp{
     text-align: center;
+    margin-top: 30px;
+    height: 600px;
+
 }
 
 .signUp{
@@ -39,7 +42,7 @@
     width: 350px;
     padding: 10px;
     border-radius: 5px;
-    margin: 20px;
+    margin: 10px;
     font-weight: 400;
     cursor: pointer;
 }
@@ -87,6 +90,11 @@
     background-color: white;
 }
 
+.alternativeLogin button:focus{
+    outline: none;
+}
+
+
 
 .alternativeLogin img{
     width: 25px;
@@ -104,4 +112,10 @@
 
 #remember{
     padding-right: 10px;
+}
+
+.error{
+    color: red;
+    font-size: 14px;
+    font-weight: 400;
 }

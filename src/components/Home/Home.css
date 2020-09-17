@@ -1,11 +1,12 @@
 .contain{
     color: white;
-    height: 100%;
+    height: 700px;
     background-attachment: fixed;
     background-position: bottom;
     background-image: url('../../assets/Image/Rectanglee.png');
     background-repeat: no-repeat;
     background-size: cover;
+  
 }
 
 .carousel-item {
@@ -23,7 +24,7 @@
 }
 
 .carousel{
-    padding: 25px 0px;
+    padding: 50px 0px;
     filter: brightness(100%);
 
 }
@@ -45,10 +46,10 @@
 .buy-now-btn{
     border: none;
     background-color: #f19c12;
-    padding: 5px 20px;
-    font-weight: 400;
+    padding: 8px 20px;
+    font-weight: 600;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .buy-now-btn:focus{

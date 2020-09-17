@@ -11,6 +11,7 @@ const Header = () => {
 
     const [signInUser, setSignInUser] = useContext(UserContext);
 
+    console.log(signInUser);
     return (
         <div className="nav-border sticky-top">
             <Navbar className="navber d-flex justify-content-between">
@@ -34,7 +35,11 @@ const Header = () => {
                         <Link to="" className="navLink">Destination</Link>
                         <Link to="" className="navLink">Blogs</Link>
                         <Link to="" className="navLink">Contact</Link>
-                        <Link to="/login" className="navLink">Login</Link>
+                        {
+                            signInUser.email ? <Link to="/login" className="navLink" onClick={() => { setSignInUser({}) }}>Logout</Link> :
+                                <Link to="/login" className="navLink">Login</Link>
+                        }
+                        <Link to="" className="navLinkUser">{signInUser.name}</Link>
                     </Nav>
                 </Form>
             </Navbar>

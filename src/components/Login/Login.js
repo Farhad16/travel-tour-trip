@@ -93,6 +93,12 @@ const Login = () => {
             const isPasswordValid = e.target.value.length > 6;
             const passwordHasNumber = /\d{1}/.test(e.target.value);
             isFieldValid = isPasswordValid && passwordHasNumber;
+        }
+
+        if (e.target.name === 'password1') {
+            const isPasswordValid = e.target.value.length > 6;
+            const passwordHasNumber = /\d{1}/.test(e.target.value);
+            isFieldValid = isPasswordValid && passwordHasNumber;
             pass1 = e.target.value;
             if (pass1 !== user.password) {
                 const msg = 'Password is not matched';
@@ -126,7 +132,6 @@ const Login = () => {
         if (redirect) {
             history.replace(from);
         }
-        console.log(res);
     }
 
     return (
@@ -139,10 +144,10 @@ const Login = () => {
                             <input type="text" onBlur={handleBlur} name="firstName" placeholder="First Name" required /><br />
                             <input type="text" onBlur={handleBlur} name="lastName" placeholder="Last Name" required /><br />
                             <input type="text" onBlur={handleBlur} name="email" placeholder="Username or Email" required /><br />
-                            <input type="password" onBlur={handleBlur} name="password" placeholder="Password" required /><br />
-                            <input type="password" onBlur={handleBlur} name="password" placeholder="Confirm Password" required /><br />
+                            <input type="password" onBlur={handleBlur} name="password1" placeholder="Password" required /><br />
+                            <input type="password" onBlur={handleBlur} name="password2" placeholder="Confirm Password" required /><br />
                             <br />
-                            <p style={{ color: 'red' }}>{message}</p>
+                            <span className="error">{message}</span>
                             <input type="submit" className="createAccount" onClick={handleSubmit} value="Create Account" />
                             <p className="note">Already have an account? <span className="colorBrown" onClick={() => { setNewUser(!newUser) }}>Login</span></p>
                         </form>
@@ -158,7 +163,7 @@ const Login = () => {
                                 </label>
                                 <span className="colorBrown" >Forget Password?</span>
                             </p><br /> <br />
-                            <p style={{ color: 'red' }}>{message}</p>
+                            <span className="error">{message}</span>
                             <input type="submit" className="createAccount" onClick={handleSubmit} value="Login" />
                             <p className="note">Don't have an account? <span className="colorBrown" onClick={() => { setNewUser(!newUser) }}>Create an account</span></p>
                         </form>
