@@ -39,7 +39,7 @@ const ConfirmBook = (props) => {
                         style={mapStyles}
                         initialCenter={{ lat: matchPlace.lat, lng: matchPlace.lng }}
                     >
-                        <Marker position={{ lat: 23.777176, lng: 23.777176 }} />
+                        <Marker position={{ lat: matchPlace.lat, lng: matchPlace.lng }} />
                     </Map>
                 </div>
             </div>
