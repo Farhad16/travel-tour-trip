@@ -1,12 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import React from 'react';
+import React, { useContext } from 'react';
 import { Form, FormControl, InputGroup, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Icon/Logo.png'
 import './Header.css'
+import { UserContext } from '../../App';
 
 const Header = () => {
+
+    const [signInUser, setSignInUser] = useContext(UserContext);
+
     return (
         <div className="nav-border sticky-top">
             <Navbar className="navber d-flex justify-content-between">
@@ -25,6 +29,7 @@ const Header = () => {
                 </Form>
                 <Form inline>
                     <Nav>
+                        <Link to="/home" className="navLink">Home</Link>
                         <Link to="" className="navLink">News</Link>
                         <Link to="" className="navLink">Destination</Link>
                         <Link to="" className="navLink">Blogs</Link>

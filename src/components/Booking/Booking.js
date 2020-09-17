@@ -9,8 +9,6 @@ const Booking = () => {
 
     const matchLocation = travelPlace.find(loc => loc.id === parseInt(id));
 
-
-
     return (
         <div className="booking">
             <div className="container">
@@ -40,7 +38,7 @@ const Booking = () => {
                                 To <br />
                                 <input type="date" />
                             </label><br />
-                            <Link to="/confirm"><button>Start Booking</button></Link>
+                            <Link to={"/confirm/" + id}><button>Start Booking</button></Link>
                         </div>
                     </div>
                 </div>

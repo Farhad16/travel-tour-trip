@@ -1,0 +1,37 @@
+
+.hotel{
+    margin: 10px 80px;
+}
+
+.hotel h2{
+    font-weight: 700;
+}
+.hotelImg{
+    box-sizing: border-box;
+    margin: 10px 20px 10px 0px;
+}
+
+.hotelImg img{
+    width: 50%;
+}
+
+
+.space-between{
+    display: flex;
+}
+
+.hotelDetails{
+    margin-top: 10px;
+}
+
+.hotelDetails p {
+    line-height: 15px;
+    font-size: 14px;
+    color: rgb(123, 124, 131);
+    font-weight: 400;
+}
+
+
+.hotelDetails h5{
+    margin-bottom: 20px;
+}
