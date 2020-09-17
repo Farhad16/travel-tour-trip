@@ -37,9 +37,9 @@ const ConfirmBook = (props) => {
                         google={props.google}
                         zoom={8}
                         style={mapStyles}
-                        initialCenter={{ lat: 47.444, lng: -122.176 }}
+                        initialCenter={{ lat: matchPlace.lat, lng: matchPlace.lng }}
                     >
-                        <Marker position={{ lat: 48.00, lng: -122.00 }} />
+                        <Marker position={{ lat: 23.777176, lng: 23.777176 }} />
                     </Map>
                 </div>
             </div>
