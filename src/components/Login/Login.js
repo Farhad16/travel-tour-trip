@@ -8,6 +8,7 @@ import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, ini
 
 
 const Login = () => {
+    const [message, setMessage] = useState('');
     const [newUser, setNewUser] = useState(false)
     const [user, setUser] = useState({
         isSignedIn: false,
@@ -73,14 +74,35 @@ const Login = () => {
 
     const handleBlur = (e) => {
         let isFieldValid = 'true'
+        let pass1;
 
         if (e.target.name === 'email') {
-            isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
+            const validEmail = /\S+@\S+\.\S+/.test(e.target.value);
+            if (validEmail) {
+                const msg = '';
+                setMessage(msg)
+                isFieldValid = validEmail;
+            }
+            else {
+                const msg = 'Username or email is Invalid';
+                setMessage(msg)
+            }
         }
+
         if (e.target.name === 'password') {
             const isPasswordValid = e.target.value.length > 6;
             const passwordHasNumber = /\d{1}/.test(e.target.value);
             isFieldValid = isPasswordValid && passwordHasNumber;
+            pass1 = e.target.value;
+            if (pass1 !== user.password) {
+                const msg = 'Password is not matched';
+                setMessage(msg)
+            }
+            else {
+                const msg = '';
+                setMessage(msg)
+                isFieldValid = isPasswordValid && passwordHasNumber;
+            }
         }
 
         if (isFieldValid) {
@@ -88,28 +110,13 @@ const Login = () => {
             newUserInfo[e.target.name] = e.target.value;
             setUser(newUserInfo);
         }
-        // if (e.target.value === "") {
-        //     const newUserInfo = { error: '' };
-        //     setUser(newUserInfo);
-        // }
 
 
-        if (e.target.name === 'password2') {
-            const isPasswordValid = e.target.value.length > 6;
-            const passwordHasNumber = /\d{1}/.test(e.target.value);
-            isFieldValid = isPasswordValid && passwordHasNumber;
+        if (e.target.value === "") {
+            const msg = '';
+            setMessage(msg)
         }
 
-
-        // if (e.target.value !== "" && !isFieldValid) {
-        //     const newUserInfo = { error: 'Username or Password is not valid' };
-        //     setUser(newUserInfo);
-        // }
-
-        // if (user.password !== user.password2) {
-        //     const newUserInfo = { error: 'Password is not Match' };
-        //     setUser(newUserInfo);
-        // }
     }
 
     const handleResponse = (res, redirect) => {
@@ -133,7 +140,9 @@ const Login = () => {
                             <input type="text" onBlur={handleBlur} name="lastName" placeholder="Last Name" required /><br />
                             <input type="text" onBlur={handleBlur} name="email" placeholder="Username or Email" required /><br />
                             <input type="password" onBlur={handleBlur} name="password" placeholder="Password" required /><br />
-                            <input type="password" onBlur={handleBlur} name="password2" placeholder="Confirm Password" required /><br />
+                            <input type="password" onBlur={handleBlur} name="password" placeholder="Confirm Password" required /><br />
+                            <br />
+                            <p style={{ color: 'red' }}>{message}</p>
                             <input type="submit" className="createAccount" onClick={handleSubmit} value="Create Account" />
                             <p className="note">Already have an account? <span className="colorBrown" onClick={() => { setNewUser(!newUser) }}>Login</span></p>
                         </form>
@@ -148,7 +157,8 @@ const Login = () => {
                                     <input type="checkbox" id="remember" /><span style={{ paddingLeft: '10px' }}>Remember me</span>
                                 </label>
                                 <span className="colorBrown" >Forget Password?</span>
-                            </p><br />
+                            </p><br /> <br />
+                            <p style={{ color: 'red' }}>{message}</p>
                             <input type="submit" className="createAccount" onClick={handleSubmit} value="Login" />
                             <p className="note">Don't have an account? <span className="colorBrown" onClick={() => { setNewUser(!newUser) }}>Create an account</span></p>
                         </form>
